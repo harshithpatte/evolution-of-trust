@@ -1,14 +1,12 @@
-import java.util.Scanner;
-
-public class Player {
+public abstract class Player {
     private String name;
     protected int score;
-    protected Reader reader;
+    protected Strategy strategy;
 
-    public Player(String name, Reader reader) {
+    public Player(String name, Strategy strategy) {
         this.name = name;
         this.score = 0;
-        this.reader = reader;
+        this.strategy = strategy;
     }
 
     public void addCoins(int coins) {
@@ -24,15 +22,15 @@ public class Player {
     }
 
     public boolean chooseToCooperate() {
-        return reader.isChoiceCooperative();
+        return strategy.isChoiceCooperative();
     }
 
     public void subtractCoins(int coins) {
         this.score-=coins;
     }
 
-    public void setReader(Reader reader) {
-        this.reader = reader;
+    public void setStrategy(Strategy strategy) {
+        this.strategy = strategy;
     }
 
 }

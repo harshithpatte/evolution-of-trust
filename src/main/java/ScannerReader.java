@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ScannerReader implements Reader {
+public class ScannerReader implements Strategy {
 
     Scanner scanner = new Scanner(System.in);
     @Override

@@ -1,36 +1,21 @@
 public class CopyCat extends Player {
-    private boolean isCooperative = true;
-    private Player player;
 
-    public CopyCat(String name, Player player) {
-        super(name, () -> true);
-        this.player = player;
+    public CopyCat(String name) {
+        super(name, new CopyCatStrategy());
+
     }
 
     @Override
-    public boolean chooseToCooperate() {
-        return isCooperative;
+    public void subtractCoins(int coins) {
+//        strategy.setBehaviour(false);
+        score -= coins;
     }
 
-    //    @Override
-//    public void subtractCoins(int coins) {
-//        if (isCooperative) {
-//            reader = () -> false;
-//            isCooperative = false;
-//        }
-//        score -= coins;
-//    }
-//
-//    @Override
-//    public void addCoins(int coins) {
-//        if (!isCooperative) {
-//            reader = () -> true;
-//            isCooperative = true;
-//        } else {
-//
-//        }
-//        score += coins;
-//    }
+    @Override
+    public void addCoins(int coins) {
+//        strategy.setBehaviour(true);
+        score += coins;
+    }
 }
 
 //consider state diagram
